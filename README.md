@@ -39,3 +39,22 @@ class Solution:
             l2 = l2.next if l2 != None else l2
         return dummy.next
 ```
+
+## Product of Array Except Self
+```
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        res = [1] * len(nums)
+        temp = nums[0]
+
+        for i in range(1, len(nums)): 
+            res[i] = temp
+            temp *= nums[i]
+        
+        temp = nums[-1]
+        for i in range(len(nums)-2, -1, -1):
+            res[i] *= temp
+            temp *= nums[i]
+
+        return res
+```
